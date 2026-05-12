@@ -1,0 +1,6 @@
+{
+  "name": "University Smart Scheduler",
+  "description": "A comprehensive tool for university administrators to manage curricula, map courses, and generate optimized schedules using CSV data and smart configuration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

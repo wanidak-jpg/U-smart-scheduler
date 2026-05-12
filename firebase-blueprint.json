@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "MajorConfig": {
+      "title": "Major Configuration",
+      "description": "Stores the configuration for university majors and batches.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "year": { "type": "number", "description": "1-4" },
+        "semester": { "type": "number", "description": "1, 2, or Summer" },
+        "batch": { "type": "string", "description": "e.g., 1/1, 1/2" },
+        "plan": { "type": "string", "enum": ["Normal", "Co-op"] },
+        "studentCount": { "type": "number" },
+        "curriculumYear": { "type": "number", "description": "e.g., 2564" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "year", "semester", "batch", "plan", "studentCount", "curriculumYear"]
+    },
+    "Course": {
+      "title": "Master Course",
+      "description": "Processed course data from Year Plan and วก.340.",
+      "type": "object",
+      "properties": {
+        "code": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string", "enum": ["LECT", "LAB"] },
+        "classSize": { "type": "number" },
+        "curriculumYear": { "type": "number" },
+        "source": { "type": "string" }
+      },
+      "required": ["code", "title"]
+    },
+    "Room": {
+      "title": "Room Database",
+      "description": "List of available rooms from RDB_MainCampus.",
+      "type": "object",
+      "properties": {
+        "roomNum": { "type": "string" },
+        "roomSize": { "type": "number" },
+        "roomType": { "type": "string" }
+      },
+      "required": ["roomNum", "roomSize"]
+    }
+  },
+  "firestore": {
+    "major_configs": {
+      "schema": "MajorConfig",
+      "description": "Configuration for majors."
+    },
+    "master_courses": {
+      "schema": "Course",
+      "description": "Processed courses."
+    },
+    "rooms_database": {
+      "schema": "Room",
+      "description": "Cleaned room list."
+    }
+  }
+}
